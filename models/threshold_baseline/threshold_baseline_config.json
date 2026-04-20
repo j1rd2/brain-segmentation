@@ -1,0 +1,13 @@
+{
+    "model_name": "threshold_baseline",
+    "method": "fixed_threshold_segmentation",
+    "input_channel": 1,
+    "input_channel_name": "FLAIR",
+    "normalization": "minmax_per_image",
+    "threshold": 0.55,
+    "output_classes": {
+        "0": "background",
+        "1": "lesion"
+    },
+    "notes": "This is a non-trainable classical baseline. No learned weights are generated. This file stores the baseline configuration."
+}
