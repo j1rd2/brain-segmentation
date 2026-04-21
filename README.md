@@ -46,3 +46,24 @@ project_root/
 ```
 
 ## How to setup the project
+
+## How to run the scripts:
+
+- Threshold:
+```
+python3 src/threshold.py  
+```
+
+- Enoder decoder V1:
+```
+python3 src/encoder_decoder_v1.py
+```
+
+- Interface Script
+```
+python3 src/model_interface.py \
+  --model models/encoder_decoder_v1/encoder_decoder_v1_fold_4.h5 \
+  --image data/inference_image/test1.tif \
+  --output results/inference \
+  --threshold 0.5
+```
