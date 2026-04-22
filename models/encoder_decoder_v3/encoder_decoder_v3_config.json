@@ -1,0 +1,57 @@
+{
+    "model_name": "encoder_decoder_v3",
+    "framework": "Keras / TensorFlow",
+    "input_shape": [
+        256,
+        256,
+        3
+    ],
+    "output_channels": 1,
+    "task": "binary image segmentation",
+    "architecture": {
+        "type": "encoder_decoder_v3",
+        "encoder_1": [
+            "Conv(3x3,16)+ReLU",
+            "Conv(3x3,16)+ReLU",
+            "StridedConv(3x3,16,stride=2)"
+        ],
+        "encoder_2": [
+            "Conv(3x3,32)+ReLU",
+            "Conv(3x3,32)+ReLU",
+            "StridedConv(3x3,32,stride=2)"
+        ],
+        "bottleneck": [
+            "Conv(3x3,64)+ReLU",
+            "Conv(3x3,64)+ReLU"
+        ],
+        "decoder_1": [
+            "UpSampling",
+            "Concat skip",
+            "Conv(3x3,32)+ReLU",
+            "Conv(3x3,32)+ReLU"
+        ],
+        "decoder_2": [
+            "UpSampling",
+            "Concat skip",
+            "Conv(3x3,16)+ReLU",
+            "Conv(3x3,16)+ReLU"
+        ],
+        "output": [
+            "Conv(1x1,1)",
+            "Sigmoid"
+        ]
+    },
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss": "bce_dice_loss",
+    "training_metric": "dice_coefficient",
+    "batch_size": 8,
+    "epochs": 15,
+    "prediction_threshold": 0.5,
+    "evaluation_thresholds": [
+        0.5,
+        0.3,
+        0.25,
+        0.2
+    ]
+}
