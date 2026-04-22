@@ -2,6 +2,12 @@
 
 For a more in depth report take a look to the formal report: [Click here](./report.pdf).
 
+Note: Due the high computational cost of nnU-Net, this model was trained using Google Colab GPU acceleration.
+
+Results for nnU-Net model:
+
+Code for nnU-Net model:
+
 This project focuses on the segmentation of abnormal regions in **brain MRI images** from patients with **lower-grade glioma (LGG)**. The dataset used contains MRI slices and their corresponding manual segmentation masks of **FLAIR abnormalities**, making this a **binary medical image segmentation** problem.
 
 The main objective of the project is to prepare the dataset, explore its characteristics, and build a segmentation pipeline capable of identifying the abnormal region in each MRI slice.
@@ -61,9 +67,11 @@ python3 src/encoder_decoder_v1.py
 
 - Interface Script
 ```
-python3 src/model_interface.py \
-  --model models/encoder_decoder_v1/encoder_decoder_v1_fold_4.h5 \
-  --image data/inference_image/test1.tif \
-  --output results/inference \
-  --threshold 0.5
+    python3 src/model_interface.py \
+    --model models/encoder_decoder_v1/encoder_decoder_v1_fold_4.h5 \
+    --image data/inference_image/TCGA_CS_5393_19990606_6.tif \
+    --output results/inference \
+    --threshold 0.5 \
+    --overlay-channel 1 \
+    --save-npy
 ```
