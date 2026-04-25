@@ -75,3 +75,27 @@ python3 src/encoder_decoder_v1.py
     --overlay-channel 1 \
     --save-npy
 ```
+
+        python3 src/model_interface.py \
+    --model models/encoder_decoder_v3/encoder_decoder_v3_fold_4.h5 \
+    --image data/inference_image/TCGA_CS_5393_19990606_6.tif \
+    --output results/inference \
+    --threshold 0.5 \
+    --overlay-channel 1 \
+    --save-npy
+
+        python3 src/model_interface.py \
+    --model models/encoder_decoder_v1/encoder_decoder_v1_fold_4.h5 \
+    --image data/inference_image/TCGA_HT_7605_19950916_18.tif \
+    --output results/inference \
+    --threshold 0.5 \
+    --overlay-channel 1 \
+    --save-npy
+
+            python3 src/model_interface.py \
+    --model models/encoder_decoder_v3/encoder_decoder_v3_fold_4.h5 \
+    --image data/inference_image/TCGA_HT_7605_19950916_18.tif \
+    --output results/inference \
+    --threshold 0.5 \
+    --overlay-channel 1 \
+    --save-npy
