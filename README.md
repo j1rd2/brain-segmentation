@@ -62,17 +62,17 @@ pip install requirements.txt
 3. Run the scripts if you want to train a model or run it.
 
 
-## How to run the scripts:
+## How to run the scripts (example):
 
 ```
-python3 [path to the mode scrpt]
+python3 src/encoder_decoder_v4.py
 ```
 
 - Interface Script
 ```
     python3 src/model_interface.py \
-    --model models/[complete path to the model]\
-    --image data/[complete path to the image]\
+    --model models/encoder_decoder_v4\
+    --image data/inference_image/TCGA_CS_5393_19990606_6.tif\
     --output results/inference \
     --threshold 0.5 \
     --overlay-channel 1 \
